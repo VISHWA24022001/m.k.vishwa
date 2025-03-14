@@ -38,7 +38,7 @@ php artisan key:generate
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=login
+DB_DATABASE=vishwa
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -58,6 +58,11 @@ php artisan migrate
 ### **To generate 10 fake users using Laravel Seeder:**
 
 php artisan db:seed --class=UserSeeder
+
+### **login credentials
+email = m.k.vishwa@gmail.com
+password = 123456
+
 
 
 ### **6. Start the Development Server**
