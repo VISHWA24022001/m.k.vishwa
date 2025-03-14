@@ -14,8 +14,8 @@ Follow the steps below to set up and run the project on your local environment:
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/laravel-product-app.git
-cd laravel-product-app
+git clone https://github.com/VISHWA24022001/m.k.vishwa.git
+
 
 
 ### **2. Install Dependencies**
