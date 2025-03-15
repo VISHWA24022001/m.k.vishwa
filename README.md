@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Product Management App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a Laravel-based Product Management Application that includes the following features:
+- Basic Routing and Controller
+- Full CRUD Operations (Create, Read, Update, Delete)
+- Database Seeding and Faker for realistic data generation
+- Authentication Middleware for access control
+- Clean and responsive UI using Bootstrap
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 **Setup Instructions**
+Follow the steps below to set up and run the project on your local environment:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/VISHWA24022001/m.k.vishwa.git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### **2. Install Dependencies**
+### **Make sure you have Composer installed, then run:**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### **3. Set Up Environment Variables**
+### **(i)Copy the .env.example file to .env:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+cp .env.example .env
 
-### Premium Partners
+### **(ii)Generate the application key:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+php artisan key:generate
 
-## Contributing
+### **(iii)Configure your database settings in the .env file:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=vishwa
+DB_USERNAME=root
+DB_PASSWORD=
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **4. Set Up Database**
+### **(i)Create the database manually or using the command line:**
 
-## Security Vulnerabilities
+mysql -u root -p -e "CREATE DATABASE vishwa;"
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **(ii)Run the migrations:**
 
-## License
+php artisan migrate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+### **5. Seed the Database**
+
+### **To generate 10 fake users using Laravel Seeder:**
+
+php artisan db:seed --class=UserSeeder
+
+### **login credentials
+email = m.k.vishwa@gmail.com
+password = 123456
+### **every user password = 123456
+
+
+### **6. Start the Development Server**
+
+### **(i)Start the Laravel development server:**
+
+php artisan serve
+
+### **(ii)Open your browser and visit:**
+
+http://127.0.0.1:8000
+
+
+### **7. Test Routes**
+
+Route |	Method	| Description
+/	GET	 Simple welcome message
+/products	GET	 List  all products
+/products/create	GET	 Form to add a new product
+/products/{id}/edit	GET	 Form to edit an existing product
+/products/{id}	DELETE	 Delete a product
+/home	GET	 Protected route (requires login)
+
+
+ ### **Project Structure**
+
+
+ ├── app
+│   ├── Http
+│   │   ├── Controllers
+│   │   │   └── ProductController.php
+│   │   └── Middleware
+│   │       └── Authenticate.php
+│   └── Models
+│       └── Product.php
+├── database
+│   ├── migrations
+│   ├── seeders
+│   │   └── UserSeeder.php
+├── resources
+│   ├── views
+│       └── products
+│           ├── index.blade.php
+│           ├── create.blade.php
+│           ├── edit.blade.php
+├── routes
+│   └── web.php
+└── .env
